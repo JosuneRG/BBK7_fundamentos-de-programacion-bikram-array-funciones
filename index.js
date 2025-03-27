@@ -12,22 +12,32 @@ const arrayBidimensional = [[0,2,4,6,8], ['a','b','c']];
 
 // Funciones
 // 5.- Crea la función suma que acepte como argumento dos números y devuelva el resultado de su suma
-function sum(num1, num2)
+function suma(num1, num2)
 {
-    return "La suma de los numeros es: ",num1 + num2;
-}
+    return num1 + num2;
+};
+suma(116, 91);
+suma(25, 70);
+suma(136, 35);
+suma(150, 137);
+suma(90, 73);
 
 // 6.- Crea la función potenciacion que acepte como argumento dos números y devuelva el resultado de elevar el primero(a) al segundo(b) (a^b)
-function exp(num1, num2)
+function potenciacion(num1, num2)
 {
-    return "Ejercicio 6: El resultado de elevar el primero(a) al segundo(b) es: ",Math.pow(num1, num2);
+    return  Math.pow(num1, num2);
     //o que es lo mismo num1 ** num2;
 }
+potenciacion(42, 2);
+potenciacion(16, 9);
+potenciacion(14, 2);
+potenciacion(31, 4);
+potenciacion(47, 8);
 
 // 7.- Crea la función separarPalabras que acepte como argumento un string y devuelva un array de palabras 'hola mundo' => [hola, mundo]
 let message = "Hola me llamo kuki";
 
-function wordSeparate(message) {
+function separarPalabras(message) {
     return message.split(" ");
 }
 
@@ -35,42 +45,40 @@ const separationArray = wordSeparate(message);
 console.log("Ejercicio 7:",separationArray);
 
 // 8.- Crea la función repetirString que acepte como argumento un string y un número y devuelva un string que sea el resultado de concatenar el primer string el número dado de veces
-let message1 = "Hola que tal";//prompt("Introduce un mensaje para repetirlo por N veces:");
-let number1 = 2;//prompt("Introduce un numero:");
-let result;
-
-function repeatString(message, number1) 
-{
-    number1 = Number(number1);
-    message = message1.toString();
-    
-    result = message.repeat(number1), "\n";
+function repetirString(str, veces) {
+    return str.repeat(veces);
 }
-repeatString(message,number1);
-console.log("Ejercicio 8:",result);
+
+// Ejemplo de uso ja
+let mensaje = "ja";
+let veces = 10;
+console.log("Ejercicio 8:",repetirString(mensaje, veces));
+
+// Ejemplo de uso estoy castigado
+let mensaje2 = "estoy castigado";
+let veces2 = 10;
+console.log(repetirString(mensaje2, veces2));  
 
 // 9.- Crea la función esPrimo que acepte como argumento un número y devuelva true si es primo y false si no lo es
-let numberPrime = 3;//prompt("Introduce un numero para ver si es primo:");
-let result2;
-
-function primeNumber(numberPrime)
+function esPrimo(numberPrime)
 {
-    if(numberPrime == 1)
+    if (numero <= 1) return false; // Los números menores o iguales a 1 no son primos
+    for (let i = 2; i <= Math.sqrt(numero); i++) 
     {
-        result2 = 'No es primo.';
+        if (numero % i === 0) 
+        {
+            return false; 
+        }
     }
-    else if(numberPrime % 2 == 0)
-    {
-        result2 =  'No es primo.';
-    }
-    else
-    {
-        result2 = 'Es primo.';
-    }
+    return true; 
 }
 
-primeNumber(numberPrime);
-console.log("Ejercicio 9:",result2);
+// Ejemplo de uso:
+console.log("Ejercicio 9:");
+console.log(esPrimo(821));// true
+console.log(esPrimo(1669));// true
+console.log(esPrimo(990));// false
+console.log(esPrimo(1514));// false
 
 // Mezclando arrays y funciones
 //-------------  10.- Crear la función ordenarArray que acepta como argumento un array de números y devuelva un array ordenado de menor a mayor ---------------------
@@ -90,8 +98,6 @@ console.log("Ejercicio 10: El array ordenado es:", ordenarArray(numberArray));
 
 
 // 11.- Crear la función obtenerPares que acepta como argumento un array de números y devuelva un array con los elementos pares
-const numberArray1 = [30, 4, 50, 8, 90, 1, 35, 6];
-
 function obtenerPares(numberArray1)
 {
     for(let i=0; i<numberArray1.length; i++)
@@ -107,7 +113,14 @@ function obtenerPares(numberArray1)
     }
     
 }
-obtenerPares(numberArray1);
+
+// Ejemplo de uso:
+console.log("Pares en [2, 7, 0, 8]:", obtenerPares([2, 7, 0, 8])); // [2, 0, 8]
+console.log("Pares en [7, 61, 38, 90, 17, 119, 93, 118, 14]:", obtenerPares([7, 61, 38, 90, 17, 119, 93, 118, 14])); // [38, 90, 118, 14]
+console.log("Pares en [134, 61, 130, 71, 120, 137]:", obtenerPares([134, 61, 130, 71, 120, 137])); // [134, 130, 120]
+console.log("Pares en [65, 83, 96, 0, 53, 96, 14, 50, 42]:", obtenerPares([65, 83, 96, 0, 53, 96, 14, 50, 42])); // [96, 0, 96, 14, 50, 42]
+console.log("Pares en [20, 90, 129, 88]:", obtenerPares([20, 90, 129, 88])); // [20, 90, 88]
+
 
 // 12.- Crear la función pintarArray que acepte como argumento un array y devuelva una cadena de texto Array entrada: [0, 1, 2] String salida: '[0, 1, 2]'
 function pintarArray(arr) {
@@ -188,42 +201,28 @@ console.log("Ejercicio 21: el numero", num21,"es:",esPar(num21));
 
 
 // 22.- Crea el array arrayFunciones que tenga como valor las funciones: suma, resta y multiplicación (todas aceptan 2 números como argumento y devuelve el resultado de su operación)
-function sumNum(num1, num2)
+function suma(num1, num2)
 {
     return num1+num2;
 }
 
-function restaNum(num1, num2)
+function resta(num1, num2)
 {
     return num1-num2;
 }
 
-function multiplicacionNum(num1, num2)
+function multiplicacion(num1, num2)
 {
     return num1*num2;
 }
 
-const arrayFunciones = [sumNum, restaNum, multiplicacionNum];
-let num1 = 6;
-let num2 = 3;
-// Función que ejecuta una operación según el índice
-function menu(opcion, num1, num2) 
-{
-    if (opcion >= 0 && opcion < arrayFunciones.length) 
-    {
-        return arrayFunciones[opcion](num1, num2);
-    } 
-    else 
-    {
-        return "Opción no válida";
-    }
-}
+const arrayFunciones = [suma, resta, multiplicacion];
 
 // Pruebas
 console.log("----------- Ejercicio 22: ------------")
-console.log("Suma:", menu(0, 5, 3)); // Suma: 8
-console.log("Resta:", menu(1, 5, 3)); // Resta: 2
-console.log("Multiplicación:", menu(2, 5, 3)); // Multiplicación: 15
+console.log("Suma:",  arrayFunciones[0](133, 54));// Suma: 8
+console.log("Resta:", arrayFunciones[1](93, 176)); // Resta: 2
+console.log("Multiplicación:",  arrayFunciones[2](91, 113));  // Multiplicación: 15
 
 // Mezclando arrays y funciones
 // 23.- Crear la función ordenarArray2 que acepta como argumento un array de números y devuelva un array ordenado de mayor a menor
