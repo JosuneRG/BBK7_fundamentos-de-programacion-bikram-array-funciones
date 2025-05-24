@@ -41,7 +41,7 @@ function separarPalabras(message) {
     return message.split(" ");
 }
 
-const separationArray = wordSeparate(message);
+const separationArray = separarPalabras(message);
 console.log("Ejercicio 7:",separationArray);
 
 // 8.- Crea la función repetirString que acepte como argumento un string y un número y devuelva un string que sea el resultado de concatenar el primer string el número dado de veces
